@@ -3,37 +3,37 @@ $file_name = "signup.php";
 $page_title = "Signup";
 
 include_once ("includes/db_connect.php");
-//include_once ("includes/delete-duration.php");
 include_once ("includes/header.php");
 ?>
 
 <div class="container">
   <h2>Please Sign Up</h2>
-  <form>
+  <form action = "register.php" method = "post">
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
+      <input type="email" class="form-control" name = "email" id="email" placeholder="Enter email">
     </div>
     <div class="form-group">
       <label for="pswd">Password:</label>
-      <input type="password" class="form-control" id="pswd" placeholder="Enter password">
+      <input type="password" class="form-control" name = "password" id="pswd" placeholder="Enter password">
     </div>
 	<div class="form-group">
-      <label for="pswd">Retype Password:</label>
-      <input type="password" class="form-control" id="repswd" placeholder="Retype password">
+      <label for="repswd">Retype Password:</label>
+      <input type="password" class="form-control" name = "repassword" id="repswd" placeholder="Retype password">
     </div>
 	<div class="checkbox">
-      <label><input type="checkbox"> I Agree</label>
+      <label><input type="checkbox" name="agree" value="yes"> I Agree</label>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default" name="submit" value = "submit">Submit</button>
   </form>
 </div>
 
 
 <?php
-//include_once ("includes/create-duration.php");
-//include_once ("includes/update-duration.php");
-//include_once ("includes/read-duration.php");
+print_r($_POST);
+// if(($_POST["password"])!=($_POST["repassword"])){
+    // echo"Password did not match! Try again.";
+// }
 
 
 include_once ('includes/footer.php');

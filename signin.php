@@ -3,20 +3,19 @@ $file_name = "signin.php";
 $page_title = "Signin";
 
 include_once ("includes/db_connect.php");
-//include_once ("includes/delete-duration.php");
 include_once ("includes/header.php");
 ?>
 
 <div class="container">
   <h2>Please Sign In</h2>
-  <form>
+  <form action = "login.php" method = "post">
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
+      <input type="email" class="form-control" name = "email" id="email" placeholder="Enter email">
     </div>
     <div class="form-group">
       <label for="pswd">Password:</label>
-      <input type="password" class="form-control" id="pswd" placeholder="Enter password">
+      <input type="password" class="form-control" name = "password" id="pswd" placeholder="Enter password">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
@@ -24,9 +23,12 @@ include_once ("includes/header.php");
 
 
 <?php
-//include_once ("includes/create-duration.php");
-//include_once ("includes/update-duration.php");
-//include_once ("includes/read-duration.php");
+print_r($_POST);
 
+
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] !== true){
+		header("Location:signin.php");
+		echo 'problem';
+	}
 
 include_once ('includes/footer.php');
