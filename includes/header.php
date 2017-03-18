@@ -11,11 +11,11 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="res/css/bootstrap-theme.min.css">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="res/js/bootstrap.min.js"></script>
-
 <!-- jquery -->
 <script src="res/jquery/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="res/js/bootstrap.min.js"></script>
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/style.css" type="text/css"/>

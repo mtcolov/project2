@@ -14,14 +14,14 @@ include_once ("includes/header.php");
 <div class="container-fluid">
 <div class="row pull-right">
 
-<?php
 
-echo "<div class='alert alert-success alert-dismissible' role='alert'>";
-echo "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;
-			</span></button>Logged in as,  " . $_SESSION['username'] . "</div>";
-echo "<a href='logout.php' class='btn btn-danger btn-sm' role='button'> Log Out</a>";
+
+<div class='alert alert-success alert-dismissible' role='alert'>
+<span type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></span>
+Logged in as,<?php  " . $_SESSION['username'] . "?></div>
+<a href='logout.php' class='btn btn-danger btn-sm' role='button'> Log Out</a>
  
-	
+<?php	
 	
 ?>
 
