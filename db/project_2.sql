@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2017 at 07:39 PM
+-- Generation Time: Mar 19, 2017 at 01:11 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.1.1
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `project_2`
+-- Database: `test_project_2`
 --
 
 -- --------------------------------------------------------
@@ -32,15 +32,6 @@ CREATE TABLE `flags` (
   `date_deleted` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `flags`
---
-
-INSERT INTO `flags` (`flag_id`, `flag_name`, `date_deleted`) VALUES
-(1, 'днес', NULL),
-(2, 'предстои', NULL),
-(3, 'наближава', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -53,7 +44,7 @@ CREATE TABLE `tasks` (
   `task_description` text NOT NULL,
   `task_term` date NOT NULL,
   `user_id` int(11) NOT NULL,
-  `flag_id` int(10) NOT NULL,
+  `flag_id` int(10) NOT NULL DEFAULT '2',
   `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_deleted` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -94,7 +85,8 @@ ALTER TABLE `tasks`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `user_email` (`user_email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -104,17 +96,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `flags`
 --
 ALTER TABLE `flags`
-  MODIFY `flag_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `flag_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `task_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `task_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Constraints for dumped tables
 --
