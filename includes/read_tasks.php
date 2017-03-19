@@ -1,6 +1,6 @@
 <?php
 
-function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
+function dateDifference($date_1 , $date_2 , $differenceFormat = '%R%a')
 {
     $datetime1 = date_create($date_1);
     $datetime2 = date_create($date_2);
@@ -16,17 +16,22 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
 //-----
 	function flags_func($a){
-	 	if ($a!=0) {
-			if ($a<7) {
+	 	if ($a>=0) {
+			if ($a==0) {
+				$flag_name1="TODAY";
+				
+			}
+			
+			elseif ($a>0 && $a<=7) {
 				$flag_name1="NEXT";
 				
-			} else {
+			} elseif ($a>7) {
 				$flag_name1="COMING";
 				
 			}		
 
 		} else {
-			$flag_name1="TODAY";
+			$flag_name1="FINISHED";
 		}
 		
 		echo "<td>" . "$flag_name1" . "</td>";
@@ -70,6 +75,63 @@ if (mysqli_num_rows($result) >0) {
  					$d=flags_func($a); 				
 
 				//--------------------------end flag ----------//
+				// $task_id = 	$row['task_id'];
+				// function update_flags($d, $task_id){
+					
+	// switch($d):
+				
+	// case $d="TODAY":
+	// $update_query = "UPDATE `tasks` SET `flag_id`= '1' WHERE `task_id`= $task_id";
+	// return $update_flag = mysqli_query($conn, $update_query);
+	// break;
+	// case $d="NEXT":
+	// $update_query = "UPDATE `tasks` SET `flag_id`= '2' WHERE `task_id`= $task_id";
+	// return $update_flag = mysqli_query($conn, $update_query);
+	// break;
+	// case $d="COMING":
+	// $update_query = "UPDATE `tasks` SET `flag_id`= '3' WHERE `task_id`= $task_id";
+	// return $update_flag = mysqli_query($conn, $update_query);
+	// break;
+	// case $d="FINISHED":
+	// $update_query = "UPDATE `tasks` SET `flag_id`= '4' WHERE `task_id`= $task_id";
+	// return $update_flag = mysqli_query($conn, $update_query);
+	// break;
+	// // default:
+	// // return "Invalid input!";
+	// endswitch;
+	 	
+ 	// }
+				
+				
+				// switch($flag_name1):
+		
+	// case $flag_name1 = "COMING":
+	// echo '<td><button class="btn btn-default" href="welcome.php?action=update_form&id='. $row['task_id'] . '" >update</button></td>';
+				
+				
+				// echo "<td><button class='btn btn-default' href='welcome.php?action=delete&id=". $row['task_id'] ."'>delete</button></td>";
+				
+						// echo "</tr>";
+	// break;
+	
+	// case $flag_name1 = "NEXT":
+	// echo '<td><button class="btn btn-default" href="welcome.php?action=update_form&id='.$row['task_id'] . '" >update</button></td>';
+	// echo "<td><button class='btn btn-default' disabled='disabled' href='welcome.php?action=delete&id=".$row['task_id'] ." '>delete</button></td>";
+				
+						// echo "</tr>";
+	// break;
+	
+	// default:
+	// echo '<td><button class="btn btn-default" disabled="disabled" href="welcome.php?action=update_form&id='.$row['task_id'] . '">update</button></td>';
+				
+				
+				// echo "<td><button class='btn btn-default' disabled='disabled' href='welcome.php?action=delete&id=".$row['task_id'] ." '>delete</button></td>";
+				
+						// echo "</tr>";
+	// endswitch;
+				
+				
+				
 				echo '<td><a class="btn btn-default" href="welcome.php?action=update_form&id='.$row['task_id'] . '" role="button">update</a></td>';
 				
 				
@@ -91,3 +153,9 @@ if (mysqli_num_rows($result) >0) {
 	echo "<div class='alert alert-warning' role='alert'>Nothing found! Please add task.</div>";
 	
 }
+
+
+// $x=dateDifference("2017-3-18" , "2017-4-22"); 					
+// $y=flags_func($x); 
+
+// echo $y;

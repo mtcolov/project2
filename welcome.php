@@ -16,7 +16,7 @@ include_once ("includes/header.php");
 
 <?php	
 
-echo "<div class='alert alert-success col-md-6 col-md-offset-4' role='alert'>Logged in as, " . $_SESSION['username'] . "</div>";
+echo "<div class='alert alert-success col-md-5 col-md-offset-4' role='alert'>Logged in as, " . $_SESSION['username'] . "</div>";
 echo "<a href='logout.php' class='btn btn-danger btn-sm' role='button'> Log Out</a>";
  
 
