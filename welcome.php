@@ -28,7 +28,6 @@ echo "<a href='logout.php' class='btn btn-danger btn-sm' role='button'> Log Out<
 
 <?php
 
-//echo "Welcome";
 include_once ("includes/create_tasks.php");
 include_once ("includes/update_tasks.php");
 include_once ("includes/read_tasks.php");
