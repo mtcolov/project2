@@ -29,7 +29,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'update_form') {
 	if (mysqli_num_rows($result) !==0) {
 		$row_edit = mysqli_fetch_assoc($result);
 	
-	
+	//print_r($row_edit);
 }
 
 

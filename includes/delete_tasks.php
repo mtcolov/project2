@@ -1,5 +1,5 @@
 <?php
-//Delete Drugs
+//Delete Tasks
 if (isset($_GET['action']) && $_GET['action'] == 'delete') {
 	$task_id = $_GET['id'];
 	$date = date('Y-m-d');
