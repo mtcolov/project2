@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2017 at 01:11 PM
+-- Generation Time: Mar 19, 2017 at 02:57 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.1.1
 
@@ -32,6 +32,16 @@ CREATE TABLE `flags` (
   `date_deleted` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `flags`
+--
+
+INSERT INTO `flags` (`flag_id`, `flag_name`, `date_deleted`) VALUES
+(1, 'Today', NULL),
+(2, 'Next', NULL),
+(3, 'Coming', NULL),
+(4, 'Accomplished', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -44,10 +54,17 @@ CREATE TABLE `tasks` (
   `task_description` text NOT NULL,
   `task_term` date NOT NULL,
   `user_id` int(11) NOT NULL,
-  `flag_id` int(10) NOT NULL DEFAULT '2',
+  `flag_id` int(10) DEFAULT '2',
   `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_deleted` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`task_id`, `task_name`, `task_description`, `task_term`, `user_id`, `flag_id`, `date_created`, `date_deleted`) VALUES
+(1, 'fdfdfd', 'ggggggggggg', '2017-03-22', 11, 2, '2017-03-19 14:56:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -62,6 +79,13 @@ CREATE TABLE `users` (
   `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_deleted` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_password`, `user_email`, `date_created`, `date_deleted`) VALUES
+(11, '1234', 'test1@test.test', '2017-03-19 14:21:47', NULL);
 
 --
 -- Indexes for dumped tables
@@ -101,12 +125,12 @@ ALTER TABLE `flags`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `task_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `task_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Constraints for dumped tables
 --
