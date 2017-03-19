@@ -3,7 +3,6 @@ $file_name = "index.php";
 $page_title = "Start";
 
 include_once ("includes/db_connect.php");
-//include_once ("includes/delete-duration.php");
 include_once ("includes/header.php");
 ?>
 
@@ -19,9 +18,5 @@ include_once ("includes/header.php");
 </div>
 
 <?php
-//include_once ("includes/create-duration.php");
-//include_once ("includes/update-duration.php");
-//include_once ("includes/read-duration.php");
-
 
 include_once ('includes/footer.php');

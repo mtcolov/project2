@@ -4,6 +4,8 @@ $page_title = "Signup";
 
 include_once ("includes/db_connect.php");
 include_once ("includes/header.php");
+
+// Sign up form
 ?>
 
 <div class="container">

@@ -6,9 +6,10 @@ $result = mysqli_query($conn, $read_query);
        
           $row = mysqli_fetch_assoc($result);
 		  $current_user_id = $row['user_id'];
-         
-?>
 
+
+// Create Task Form		  
+?>
 
 <div class="col-md-4">
   <h2>Add task</h2>
@@ -33,23 +34,20 @@ $result = mysqli_query($conn, $read_query);
         ?>
      
 	<input class="btn btn-primary" type = "submit" value = "Add" name = "submit" />
-    <!-- <button type="submit" class="btn btn-default" name = "submit"> Submit </button> -->
+    
   </form>
-<!-- </div> -->
+
 
 
 <?php
-
+// Add Task
 if(!empty($_POST['task_name'])){
 
   $task_name=$_POST['task_name'];
   $task_description=$_POST['task_description'];
   $task_term=$_POST['task_term']; 
   $user_id=$_POST['user_id'];
-  // $flag_id=$_POST['flag_id'];
   
-
-  //$insetr_query="INSERT INTO `tasks`(`task_name`) VALUES ('$task_name')";
   $insert_query="INSERT INTO `tasks`(`task_name`, `task_description`, `task_term`, `user_id`) VALUES ('$task_name', '$task_description', '$task_term', '$user_id')";
 
   if (mysqli_query($conn, $insert_query)) {
@@ -65,4 +63,4 @@ if(!empty($_POST['task_name'])){
 
 }
 
-//-------------------End Welcome new task ---------
+//-------------------End Add new task ---------

@@ -4,6 +4,8 @@ $page_title = "Signin";
 
 include_once ("includes/db_connect.php");
 include_once ("includes/header.php");
+
+// Sign in form
 ?>
 
 <div class="container">

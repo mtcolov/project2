@@ -1,6 +1,8 @@
 <?php
 $file_name = "welcome.php";
 $page_title = "Welcome";
+
+// Welcome page
 session_start();
  if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
 		

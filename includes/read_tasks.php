@@ -1,5 +1,5 @@
 <?php
-
+// Date difference function
 function dateDifference($date_1 , $date_2 , $differenceFormat = '%R%a')
 {
     $datetime1 = date_create($date_1);
@@ -14,7 +14,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%R%a')
 	date_default_timezone_set("Europe/Sofia");	
 	$b=date(" Y-m-d ");
 
-//-----
+// Sort function
 	
 	function sort_table ($value = NULL) {
 		if ($_POST['sort'] == 'Default') {
@@ -39,10 +39,8 @@ $sort_table_result = sort_table();
 	$sort_table_result = "";
 }
 
-//---------------- Welcome read tasks ---------
+//---------------- Read tasks ---------
 
-//if(empty($_POST['submit'])){
-//$user_email=$_GET['user_email'];
 $user_email=$_SESSION['username'];
 $read_query = "SELECT * FROM `tasks` JOIN `users` ON `users`.`user_id`=`tasks`.`user_id` JOIN `flags` ON `tasks`.`flag_id`=`flags`.`flag_id` WHERE `tasks`.`date_deleted` IS NULL AND `users`.`user_email` = '$user_email' $sort_table_result";
 $result = mysqli_query($conn, $read_query);
@@ -52,46 +50,46 @@ if (mysqli_num_rows($result) >0) {
 	<div class='\"col-md-8\ table-responsive'>
 	<h2> Tasks List</h2>";
 	?>
-	<div class="btn-group btn-group-justified" role="group" aria-label="Sort">
-  
+<div class="btn-group btn-group-justified" role="group" aria-label="Sort">
+
 	<div class="btn-group" role="group">
-	<form action="welcome.php" method="post">
-  <input type="hidden" name="sort" value="Default">
-    <button type="submit" class="btn btn-default">Default Sort</button>
-	</form>
-  </div>
-  
-  
-  <div class="btn-group" role="group">
-  <form action="welcome.php" method="post">
-  <input type="hidden" name="sort" value="Term">
-    <button type="submit" class="btn btn-default">Sort by Term</button>
-  </form>
-  </div>
-  
-  
-  <div class="btn-group" role="group">
-  <form action="welcome.php" method="post">
-  <input type="hidden" name="sort" value="Name">
-    <button type="submit" class="btn btn-default">Sort by Name</button>
-  </form>
-  </div>
-  
-</div>
-	
-	
-	<?php
+		<form action="welcome.php" method="post">
+			<input type="hidden" name="sort" value="Default">
+				<button type="submit" class="btn btn-default">Default Sort</button>
+			</form>
+		</div>
+
+
+		<div class="btn-group" role="group">
+			<form action="welcome.php" method="post">
+				<input type="hidden" name="sort" value="Term">
+					<button type="submit" class="btn btn-default">Sort by Term</button>
+				</form>
+			</div>
+
+
+			<div class="btn-group" role="group">
+				<form action="welcome.php" method="post">
+					<input type="hidden" name="sort" value="Name">
+						<button type="submit" class="btn btn-default">Sort by Name</button>
+					</form>
+				</div>
+
+			</div>
+
+
+			<?php
 	
 	echo "<table class='table table-hover'>";
 	?>
-	
-	<?php
+
+			<?php
 	
 	
 	echo "<thead><tr><th>Task</th><th>Description</th><th>Term</th><th>Flag</th><th>UPDATE</th><th>DELETE</th></tr></thead>";
 	?>
 
-	<?php
+			<?php
 	while($row = mysqli_fetch_assoc($result)){
 			
 			echo "<tr class='active'>";	
